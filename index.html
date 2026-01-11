@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download</title>
+
+<!-- FONT VIP -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+}
+
+/* ===== BACKGROUND GIF PREMIUM ===== */
+body{
+  height:100vh;
+  width:100%;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#e5e7eb;
+  background:#000;
+  position:relative;
+}
+
+/* ẢNH NỀN GIF — dùng filter để blend hài hòa */
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('https://i.pinimg.com/originals/68/1c/1c/681c1ca9d58347821695ae9a242521cf.gif') center/cover no-repeat;
+  filter:brightness(0.5) blur(2px);
+  z-index:0;
+}
+
+/* Hiệu ứng ánh sáng động overlay */
+body::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 30% 20%, #22d3ee22, transparent 40%),
+             radial-gradient(circle at 70% 80%, #38bdf822, transparent 40%);
+  animation:bgMove 12s linear infinite;
+  z-index:0;
+}
+@keyframes bgMove{
+  0%{transform:translate(0,0)}
+  50%{transform:translate(-6%,4%)}
+  100%{transform:translate(0,0)}
+}
+
+/* ===== CARD ===== */
+.card{
+  position:relative;
+  width:92%;
+  max-width:420px;
+  padding:90px 28px 34px;
+  border-radius:24px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(20px);
+  box-shadow:0 40px 120px rgba(0,0,0,.9);
+  z-index:1;
+  animation:cardIn .8s cubic-bezier(.4,0,.2,1);
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1}
+}
+
+/* ===== LOGO ===== */
+.logo{
+  position:absolute;
+  top:-46px;
+  left:50%;
+  transform:translateX(-50%);
+  width:96px;height:96px;
+  border-radius:50%;
+  background:#020617;
+  box-shadow:
+    0 0 0 6px #020617,
+    0 0 50px #22d3ee88;
+}
+.logo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+}
+
+/* ===== NAME ===== */
+.name{
+  text-align:center;
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:.6px;
+  margin-bottom:14px;
+  animation:textIn .8s ease .2s both;
+  color:#fff;
+  text-shadow:0 0 10px #22d3ee;
+}
+
+/* ===== DESC ===== */
+.desc{
+  text-align:center;
+  font-size:14px;
+  line-height:1.65;
+  opacity:.9;
+  margin-bottom:26px;
+  animation:textIn .8s ease .35s both;
+  color:#e0faff;
+}
+
+/* TEXT ANIMATION */
+@keyframes textIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1}
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  width:100%;
+  height:50px;
+  border-radius:999px;
+  border:none;
+  background:linear-gradient(135deg,#22d3ee,#38bdf8);
+  color:#020617;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 30px #22d3ee55;
+}
+
+/* ===== PROGRESS ===== */
+.progressBox{
+  display:none;
+  margin-top:22px;
+}
+.track{
+  height:10px;
+  border-radius:999px;
+  background:#020617;
+  overflow:hidden;
+}
+.bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#22d3ee,#38bdf8);
+  transition:width .25s cubic-bezier(.4,0,.2,1);
+}
+.percent{
+  margin-top:8px;
+  font-size:12px;
+  text-align:center;
+  opacity:.7;
+}
+
+/* ===== CONFIRM ===== */
+.confirm{
+  display:none;
+  margin-top:22px;
+  text-align:center;
+  animation:textIn .5s ease;
+}
+.confirm button{
+  margin-top:12px;
+  height:44px;
+  padding:0 28px;
+  border-radius:999px;
+  border:none;
+  background:#22c55e;
+  color:#022c22;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ===== LOADING ===== */
+.loading{
+  display:none;
+  margin-top:22px;
+  text-align:center;
+}
+.spin{
+  width:36px;height:36px;
+  border:4px solid #ffffff22;
+  border-top:4px solid #22d3ee;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+  margin:auto;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.count{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:600;
+  color:#22d3ee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="logo">
+    <img src="https://i.ibb.co/0yKY7YvM/0001-0.png">
+  </div>
+
+  <div class="name">Danh Mod</div>
+
+  <div class="desc">
+    Cảm ơn vì đã vượt link để đến được đây.<br>
+    Vì kinh phí hạn hẹp nên buộc phải vượt link.<br>
+    Mong bạn thông cảm.
+  </div>
+
+  <button class="btn" id="start">Tải xuống file</button>
+
+  <div class="progressBox" id="progressBox">
+    <div class="track"><div class="bar" id="bar"></div></div>
+    <div class="percent" id="percent">0%</div>
+  </div>
+
+  <div class="confirm" id="confirm">
+    <div>Bạn có muốn tải xuống không?</div>
+    <button id="go">Tiếp tục tải</button>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="spin"></div>
+    <div class="count" id="count">5</div>
+  </div>
+
+</div>
+
+<script>
+const start=document.getElementById("start");
+const bar=document.getElementById("bar");
+const percent=document.getElementById("percent");
+const progressBox=document.getElementById("progressBox");
+const confirmBox=document.getElementById("confirm");
+const loading=document.getElementById("loading");
+const count=document.getElementById("count");
+
+let p=0,timer;
+
+start.onclick=()=>{
+  start.style.display="none";
+  progressBox.style.display="block";
+
+  timer=setInterval(()=>{
+    p+=Math.random()*6+4;
+    if(p>=100){
+      p=100;
+      clearInterval(timer);
+      setTimeout(()=>{
+        progressBox.style.display="none";
+        confirmBox.style.display="block";
+      },500);
+    }
+    bar.style.width=p+"%";
+    percent.textContent=Math.floor(p)+"%";
+  },120);
+};
+
+document.getElementById("go").onclick=()=>{
+  confirmBox.style.display="none";
+  loading.style.display="block";
+
+  let t=5;
+  count.textContent=t;
+
+  const cd=setInterval(()=>{
+    t--;
+    count.textContent=t;
+    if(t===0){
+      clearInterval(cd);
+      window.location.href="https://LINK-TAI-CUA-BAN";
+    }
+  },1000);
+};
+</script>
+
+</body>
+</html>
